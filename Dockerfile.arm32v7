@@ -7,7 +7,7 @@ FROM marvinmarvin/docker-k8s-rclone:arm32v7
 #COPY --from=builder /builder/working/directory/qemu-arm-static /usr/bin
 ADD qemu-arm-static /usr/bin
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends git python3 python3-pip wget && \
+    apt-get install -y --no-install-recommends git python3 python3-pip wget nano && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN pip3 install github-backup && github-backup -v
 RUN mkdir /root/github-backup
